@@ -1,47 +1,47 @@
 programa {
-
-  funcao real subtrair(real primeiroNumero, real segundoNumero) {
-    real resultado
-
-    resultado = primeiroNumero - segundoNumero
-
-    retorne resultado
-  }
-
-  funcao real somar(real primeiroNumero, real segundoNumero) {
-    real resultado
-    
-    resultado = primeiroNumero + segundoNumero
-
-    retorne resultado
-  }
-  
-  funcao apresentarResultado(real param1, real param2) {
-
-    escreva("\n---------------------\n")
-    escreva("Resultado das operacoes: \n")
-    escreva("Soma: ", param1)
-    escreva("\nSubtracao: ", param2)
-    escreva("\n---------------------\n")
-  
-  }
-
   funcao inicio() {
-    real primeiroNumero, segundoNumero
-  
+    inteiro primeiroNumero, segundoNumero
+    inteiro resultadoSoma, resultadoSubtracao
+
     escreva("N1: ") 
     leia(primeiroNumero)
-
+    
     escreva("N2: ") 
     leia(segundoNumero)
 
-    real soma = somar( primeiroNumero, segundoNumero )
-    real subtracao = subtrair(primeiroNumero, segundoNumero)
-    
-    apresentarResultado(soma, subtracao)
+    resultadoSoma = calcular(primeiroNumero, segundoNumero, '+')
+    resultadoSubtracao = calcular(primeiroNumero, segundoNumero, '-')
 
+    mostrarResultados(resultadoSoma, resultadoSubtracao) 
   }
 
+  funcao inteiro calcular(inteiro primeiroNumero, inteiro segundoNumero, caracter operacao) {
+    inteiro resultado = 0
+
+    se (operacao == '+') {
+      resultado  = calcularSoma(primeiroNumero, segundoNumero)
+    } senao se (operacao == '-') {
+      resultado = calcularSubtracao(primeiroNumero, segundoNumero)
+    } senao {
+      escreva("\nERRO!! operacao invalida\n")
+      resultado = -135790
+    }
+
+    retorne resultado
+  }
+
+  funcao inteiro calcularSoma(inteiro param1, inteiro param2) {
+    retorne (param1 + param2)
+  }
+
+  funcao inteiro calcularSubtracao(inteiro param1, inteiro param2) {
+    retorne (param1 - param2)
+  }
+
+  funcao mostrarResultados(inteiro soma, inteiro subtracao) {
+    escreva("Soma: ", soma, "\n")
+    escreva("Subtracao: ", subtracao)
+  }
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -49,7 +49,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 920; 
+ * @POSICAO-CURSOR = 1185; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
