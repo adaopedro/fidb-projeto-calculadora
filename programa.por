@@ -1,6 +1,6 @@
 programa {
   funcao inicio() {
-    inteiro primeiroNumero, segundoNumero
+    inteiro primeiroNumero, segundoNumero, varConflito1
     inteiro resultadoSoma, resultadoSubtracao
 
     escreva("N1: ") 
